@@ -3,7 +3,7 @@ import { LoginPage } from '../../pages/LoginPage';
 import { loginData } from '../../test-data/loginData';
 
 test.describe('Login - Smoke Tests', () => {
-    test('should login successfully with valid credentials', async ({ page }) => {
+    test('should login successfully with valid credentials @smoke', async ({ page }) => {
         const loginPage = new LoginPage(page);
 
         await loginPage.navigate();

@@ -8,7 +8,7 @@ test.describe('Login - Regression Tests', () => {
         await loginPage.navigate();
     });
 
-    test('should display an error for a locked-out user', async ({ page }) => {
+    test('should display an error for a locked-out user @regression', async ({ page }) => {
         const loginPage = new LoginPage(page);
 
         await loginPage.login(
@@ -21,7 +21,7 @@ test.describe('Login - Regression Tests', () => {
         );
     });
 
-    test('should display an error for invalid credentials', async ({ page }) => {
+    test('should display an error for invalid credentials @regression', async ({ page }) => {
         const loginPage = new LoginPage(page);
 
         await loginPage.login(
@@ -34,7 +34,7 @@ test.describe('Login - Regression Tests', () => {
         );
     });
 
-    test('should require a username', async ({ page }) => {
+    test('should require a username @regression', async ({ page }) => {
         const loginPage = new LoginPage(page);
 
         await loginPage.login(
@@ -45,7 +45,7 @@ test.describe('Login - Regression Tests', () => {
         await loginPage.expectLoginError('Epic sadface: Username is required');
     });
 
-    test('should require a password', async ({ page }) => {
+    test('should require a password @regression', async ({ page }) => {
         const loginPage = new LoginPage(page);
 
         await loginPage.login(
