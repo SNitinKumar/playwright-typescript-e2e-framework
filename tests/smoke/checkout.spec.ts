@@ -1,24 +1,14 @@
-import { test, expect } from '@playwright/test';
-import { LoginPage } from '../../pages/LoginPage';
-import { ProductsPage } from '../../pages/ProductsPage';
-import { CartPage } from '../../pages/CartPage';
-import { CheckoutPage } from '../../pages/CheckoutPage';
-import { loginData } from '../../test-data/loginData';
+import { test, expect } from '../../fixtures/testFixtures';
 import { checkoutData } from '../../test-data/checkoutData';
 
 test.describe('Checkout - Smoke Tests', () => {
-    test('should complete an order successfully @smoke', async ({ page }) => {
-        const loginPage = new LoginPage(page);
-        const productsPage = new ProductsPage(page);
-        const cartPage = new CartPage(page);
-        const checkoutPage = new CheckoutPage(page);
-
-        await loginPage.navigate();
-        await loginPage.login(
-            loginData.validUser.username,
-            loginData.validUser.password
-        );
-
+    test('should complete an order successfully @smoke', async ({
+        page,
+        productsPage,
+        cartPage,
+        checkoutPage,
+        loggedInUser,
+    }) => {
         await productsPage.addProductToCart('Sauce Labs Backpack');
         await productsPage.openCart();
 
