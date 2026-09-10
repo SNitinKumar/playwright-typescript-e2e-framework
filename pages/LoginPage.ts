@@ -25,6 +25,10 @@ export class LoginPage {
         await this.loginButton.click();
     }
 
+    async getErrorMessage(): Promise<string> {
+        return (await this.errorMessage.textContent())?.trim() ?? '';
+    }
+
     async expectLoginError(message: string): Promise<void> {
         await expect(this.errorMessage).toContainText(message);
     }
